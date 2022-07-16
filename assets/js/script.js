@@ -13,8 +13,13 @@
 
 
 //current day displayed
-
 $("#currentDay").html(moment().format('MMMM Do YYYY, h:mm:ss a'));
 
+$(".container").append("<div id='hour' class= 'row time-block'>" );
+$("#hour").append("<div class= 'hour col-md-1'>" );
+$("#hour").append("<textarea class= 'col-md-10 description'>" );
+$("#hour").append("<button class= 'btn saveBtn col-md-1'> <i class='fas fa-save'>");
 
-console.log("test");
+
+var eventEl = [];
+
