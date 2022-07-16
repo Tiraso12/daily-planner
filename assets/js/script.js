@@ -14,6 +14,7 @@
 
 //current day displayed
 
-var currentDate = document.querySelector("#currentDay");
+$("#currentDay").html(moment().format('MMMM Do YYYY, h:mm:ss a'));
 
 
+console.log("test");
