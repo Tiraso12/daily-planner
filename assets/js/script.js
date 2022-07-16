@@ -11,15 +11,16 @@
 // WHEN I refresh the page
 // THEN the saved events persist
 
-
+var titleTime = moment().format('llll');
 //current day displayed
-$("#currentDay").html(moment().format('MMMM Do YYYY, h:mm:ss a'));
+$("#currentDay").html(titleTime);
 
-$(".container").append("<div id='hour' class= 'row time-block'>" );
-$("#hour").append("<div class= 'hour col-md-1'>" );
-$("#hour").append("<textarea class= 'col-md-10 description'>" );
-$("#hour").append("<button class= 'btn saveBtn col-md-1'> <i class='fas fa-save'>");
-
-
-var eventEl = [];
+//time list test
+var timeList = [
+    { time: "9:00am", value: "" },
+    { time: "10:00am", value: "" },
+    { time: "11:00am", value: "" },
+    { time: "12:00am", value: "" },
+    { time: "1:00pm", value: "" },
+];
 
