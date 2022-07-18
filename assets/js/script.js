@@ -55,14 +55,6 @@ var calendarList= [
     },
 ];
 
-function loadEntry(key){
-    var savedEntry = localStorage.getItem(key);
-
-    if (savedEntry) {
-        $('#entry-text' + key).text(savedEntry);
-    }
-};
-
 $(function(){
 
     calendarList.forEach(function(element, index){
