@@ -15,12 +15,61 @@ var titleTime = moment().format('llll');
 //current day displayed
 $("#currentDay").html(titleTime);
 
-//time list test
-var timeList = [
-    { time: "9:00am", value: "" },
-    { time: "10:00am", value: "" },
-    { time: "11:00am", value: "" },
-    { time: "12:00am", value: "" },
-    { time: "1:00pm", value: "" },
+
+var calendarList= [
+    {
+        time: "9AM",
+        work:"",
+    },
+    {
+        time: "10AM",
+        work:"",
+    },
+    {
+        time: "11AM",
+        work:"",
+    },
+    {
+        time: "12AM",
+        work:"",
+    },
+    {
+        time: "1PM",
+        work:"",
+    },
+    {
+        time: "2PM",
+        work:"",
+    },
+    {
+        time: "3PM",
+        work:"",
+    },
+    {
+        time: "4PM",
+        work:"",
+    },
+    {
+        time: "5PM",
+        work:"",
+    },
 ];
 
+function loadEntry(key){
+    var savedEntry = localStorage.getItem(key);
+
+    if (savedEntry) {
+        $('#entry-text' + key).text(savedEntry);
+    }
+};
+
+$(function(){
+
+    calendarList.forEach(function(element, index){
+
+        // this var takes each time of the timelist obj 
+        var hours = element.time;
+
+        $(".container").append("<div class = 'row time-block'> <div class='hour col-1'> "+ hours +" </div> <textarea class=' col-10 description'></textarea> <button class='saveBtn col-1'> <i class= 'fa fa-save'></i></button>");
+    })
+})
