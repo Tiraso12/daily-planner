@@ -12,9 +12,9 @@
 // THEN the saved events persist
 
 var titleTime = moment().format('llll');
+
 //current day displayed
 $("#currentDay").html(titleTime);
-
 
 var calendarList= [
     {
@@ -59,9 +59,14 @@ $(function(){
 
     calendarList.forEach(function(element, index){
 
-        // this var takes each time of the timelist obj 
+        // this var takes each time of the timelist obj and create a divs.
         var hours = element.time;
 
-        $(".container").append("<div class = 'row time-block'> <div class='hour col-1'> "+ hours +" </div> <textarea class=' col-10 description'></textarea> <button class='saveBtn col-1'> <i class= 'fa fa-save'></i></button>");
-    })
-})
+        $(".container").append("<div class = 'row time-block'> <div class='hour col-1'> "+ hours +
+        " </div> <textarea id='data-"+index+"' class='col-10 description '>"+element.work+"</textarea> <button class='btn saveBtn col-1' id='btn'> <span><i class= 'fa fa-save'></i></span></button>");
+    });
+});
+
+
+
+
