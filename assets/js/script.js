@@ -3,6 +3,9 @@ var hourJs = moment().format("h A")
 //current day displayed
 $("#currentDay").html(titleTime);
 
+
+var backgroundColor;
+
 var calendarRow = [
     { time: "9 AM", work: "", },
     { time: "10 AM", work: "", },
@@ -23,13 +26,30 @@ $(function () {
         // var for each time propertie
         var timeBlock = element.time;
 
-        $('.container').append("<div class='time-block row'> <div class='hour col-1 | " 
-        +index+ "'>"+timeBlock+"</div> <textarea class='description col-10' ></textarea> <button class='saveBtn col-1'>"+
+        $('.container').append("<div class='time-block row'> <div class='hour col-1' id='"+index+"'>"+timeBlock+"</div> <textarea class='description col-10' ></textarea> <button class='saveBtn col-1'>"+
         "<span><i class='fa fa-save''></span></button></div>");  
     });
 });
 
+var timeTracker = function () {
+    var timeNow = hourJs;
+    
+};
 
+timeTracker();
+
+// 1. create function for timeTracker
+// 2. Add variable for moment.js
+// 3. .each to loop over time blocks
+// 4. variable for blockTime
+// 5. Conditional statments comparing block time to time now
+// --> .removeClass or .addClass 
+// i.e $(this).removeClass("future"); 
+
+//create a function time now
+//.each for loop
+//block time var  var blockTime = parseInt($(this).attr("id").split("hour")[1]);
+//
 
 // GIVEN I am using a daily planner to create a schedule
 // WHEN I open the planner
