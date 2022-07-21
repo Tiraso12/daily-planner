@@ -1,5 +1,5 @@
 var titleTime = moment().format('dddd, MMMM Do');
-var hourJs = moment().format("h A")
+var hourJs = moment().format("h")
 //current day displayed
 $("#currentDay").html(titleTime);
 
@@ -7,7 +7,7 @@ $("#currentDay").html(titleTime);
 var backgroundColor;
 
 var calendarRow = [
-    { time: "9 AM", work: "", },
+    { time: 9, meridiam:"Am", work: "", },
     { time: "10 AM", work: "", },
     { time: "11 AM", work: "", },
     { time: "12 PM", work: "", },
@@ -23,17 +23,29 @@ var calendarRow = [
 $(function () {
     //loop through each time propertie, and index 
     calendarRow.forEach(function (element,index) {
+
         // var for each time propertie
         var timeBlock = element.time;
+        if (timeBlock === timeTracker()) {
+            $('.container').append("<div class='time-block row'> <div class='hour col-1' id='"+index+"'>"+
+            timeBlock+"</div> <textarea class='present description col-10' ></textarea> <button class='saveBtn col-1'>"+
+            "<span><i class='fa fa-save''></span></button></div>");
+        }else if( timeBlock > timeTracker()){
 
-        $('.container').append("<div class='time-block row'> <div class='hour col-1' id='"+index+"'>"+timeBlock+"</div> <textarea class='description col-10' ></textarea> <button class='saveBtn col-1'>"+
-        "<span><i class='fa fa-save''></span></button></div>");  
+            $('.container').append("<div class='time-block row'> <div class='hour col-1' id='"+index+"'>"+
+            timeBlock+"</div> <textarea class='future description col-10' ></textarea> <button class='saveBtn col-1'>"+
+            "<span><i class='fa fa-save''></span></button></div>"); 
+        }else if(timeBlock < timeTracker()){
+            $('.container').append("<div class='time -block row'> <div class='hour col-1' id='"+index+"'>"+
+            timeBlock+"</div> <textarea class='past description col-10' ></textarea> <button class='saveBtn col-1'>"+
+            "<span><i class='fa fa-save''></span></button></div>");
+        }                 
     });
 });
 
 var timeTracker = function () {
     var timeNow = hourJs;
-    
+    return timeNow;
 };
 
 timeTracker();
