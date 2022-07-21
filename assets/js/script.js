@@ -24,14 +24,13 @@ $(function () {
         var timeBlock = element.time;
 
         $('.container').append("<div class='time-block row'> <div class='hour col-1 | " 
-        +index+ "'>"+timeBlock+"</div> <texarea class='description col-10' ></texarea> <button class='saveBtn col-1'>"+
-        "<span><i class='fa fa-save''></span></button></div>"
-        
-        
-        
-        )
-    })
+        +index+ "'>"+timeBlock+"</div> <textarea class='description col-10' ></textarea> <button class='saveBtn col-1'>"+
+        "<span><i class='fa fa-save''></span></button></div>");  
+    });
 });
+
+
+
 // GIVEN I am using a daily planner to create a schedule
 // WHEN I open the planner
 // THEN the current day is displayed at the top of the calendar
