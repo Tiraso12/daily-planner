@@ -1,29 +1,47 @@
 var titleTime = moment().format('dddd, MMMM Do');
-var currentHour = moment().format("hA");
+var currentHour = moment().hours();
 //current day displayed
 $("#currentDay").html(titleTime);
 
 
-console.log(currentHour);
+$('.saveBtn').on('click', function () {
+    var textBlock = $(this).siblings(".description").val();
+    var hourBlock = $(this).parent().attr('id');
+    localStorage.setItem(hourBlock, textBlock);
+});
 
+function timeCheck() {
+    $('.time-block').each(function () {
+        var timeEvent = parseInt($(this).attr('id').split('-')[1]);
 
+        if (timeEvent < currentHour) {
+            $(this).addClass('past');
+        } else if(timeEvent === currentHour){
+            $(this).removeClass('past');
+            $(this).addClass('present');
+        }else{
+            $(this).removeClass('past');
+            $(this).removeClass('present');
+            $(this).addClass('future');
+        }
+    });
+}
 
+timeCheck();
 
+var interval = setInterval(timeCheck, 15000);
 
+localStorage.getItem()
+localStorage.getItem()
+localStorage.getItem()
+localStorage.getItem()
+localStorage.getItem()
+localStorage.getItem()
+localStorage.getItem()
+localStorage.getItem()
+localStorage.getItem()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//localstorage that get item jquery
 
 
 
@@ -123,48 +141,3 @@ console.log(currentHour);
 
 
 
-// var backgroundColor;
-
-// var calendarRow = [
-//     { time: 9, meridiam:"Am", work: "", },
-//     { time: "10 AM", work: "", },
-//     { time: "11 AM", work: "", },
-//     { time: "12 PM", work: "", },
-//     { time: "1 PM", work: "", },
-//     { time: "2 PM", work: "", },
-//     { time: "3 PM", work: "", },
-//     { time: "4 PM", work: "", },
-//     { time: "5 PM", work: "", }
-// ];
-
-
-// //create the time-block
-// $(function () {
-//     //loop through each time propertie, and index 
-//     calendarRow.forEach(function (element,index) {
-
-//         // var for each time propertie
-//         var timeBlock = element.time;
-//         if (timeBlock === timeTracker()) {
-//             $('.container').append("<div class='time-block row'> <div class='hour col-1' id='"+index+"'>"+
-//             timeBlock+"</div> <textarea class='present description col-10' ></textarea> <button class='saveBtn col-1'>"+
-//             "<span><i class='fa fa-save''></span></button></div>");
-//         }else if( timeBlock > timeTracker()){
-
-//             $('.container').append("<div class='time-block row'> <div class='hour col-1' id='"+index+"'>"+
-//             timeBlock+"</div> <textarea class='future description col-10' ></textarea> <button class='saveBtn col-1'>"+
-//             "<span><i class='fa fa-save''></span></button></div>"); 
-//         }else if(timeBlock < timeTracker()){
-//             $('.container').append("<div class='time -block row'> <div class='hour col-1' id='"+index+"'>"+
-//             timeBlock+"</div> <textarea class='past description col-10' ></textarea> <button class='saveBtn col-1'>"+
-//             "<span><i class='fa fa-save''></span></button></div>");
-//         }                 
-//     });
-// });
-
-// var timeTracker = function () {
-//     var timeNow = hourJs;
-//     return timeNow;
-// };
-
-// timeTracker();
