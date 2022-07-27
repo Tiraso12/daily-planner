@@ -3,15 +3,23 @@ var currentHour = moment().hours();
 //current day displayed
 $("#currentDay").html(titleTime);
 
-
+ // function to save in local storage
 $('.saveBtn').on('click', function () {
+    //var to target the text area and grab input 
     var textBlock = $(this).siblings(".description").val();
+    //var to grab the id and use it as the key 
     var hourBlock = $(this).parent().attr('id');
+
+    //saving in local storage
     localStorage.setItem(hourBlock, textBlock);
+    
 });
 
+//function to compare actual time with the times in the schedule
 function timeCheck() {
+    //loop through each time block
     $('.time-block').each(function () {
+        
         var timeEvent = parseInt($(this).attr('id').split('-')[1]);
 
         if (timeEvent < currentHour) {
@@ -31,17 +39,16 @@ timeCheck();
 
 var interval = setInterval(timeCheck, 15000);
 
-localStorage.getItem()
-localStorage.getItem()
-localStorage.getItem()
-localStorage.getItem()
-localStorage.getItem()
-localStorage.getItem()
-localStorage.getItem()
-localStorage.getItem()
-localStorage.getItem()
+$("#block-9 .description").val(localStorage.getItem("block-9"));
+$("#block-10 .description").val(localStorage.getItem("block-10"));
+$("#block-11 .description").val(localStorage.getItem("block-11"));
+$("#block-12 .description").val(localStorage.getItem("block-12"));
+$("#block-1 .description").val(localStorage.getItem("block-1"));
+$("#block-2 .description").val(localStorage.getItem("block-2"));
+$("#block-3 .description").val(localStorage.getItem("block-3"));
+$("#block-4 .description").val(localStorage.getItem("block-4"));
+$("#block-5 .description").val(localStorage.getItem("block-5"));
 
-//localstorage that get item jquery
 
 
 
