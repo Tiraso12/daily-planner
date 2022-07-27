@@ -10,4 +10,4 @@ this calendar was created to keep track of daily activities, saving entries in l
 # URL :
 https://tiraso12.github.io/daily-planner/
 
-![project image]()
+![project image](/assets/img/tiraso12.github.io_daily-planner_.png)
