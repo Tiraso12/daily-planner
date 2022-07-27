@@ -19,9 +19,9 @@ $('.saveBtn').on('click', function () {
 function timeCheck() {
     //loop through each time block
     $('.time-block').each(function () {
-        
+        //var to take the time and turn in into a number to compare with time
         var timeEvent = parseInt($(this).attr('id').split('-')[1]);
-
+//if statements to check time
         if (timeEvent < currentHour) {
             $(this).addClass('past');
         } else if(timeEvent === currentHour){
@@ -37,8 +37,10 @@ function timeCheck() {
 
 timeCheck();
 
+// var to check the time every 15 seconds
 var interval = setInterval(timeCheck, 15000);
 
+//getting values from localstorage and displaying in the page
 $("#block-9 .description").val(localStorage.getItem("block-9"));
 $("#block-10 .description").val(localStorage.getItem("block-10"));
 $("#block-11 .description").val(localStorage.getItem("block-11"));
